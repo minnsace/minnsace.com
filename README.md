@@ -23,9 +23,10 @@ links and anchors, metadata, image alt attributes, required images, sitemap entr
 deployment inputs, and absence of outdated VR claims; it is not a full HTML or
 accessibility audit.
 
-The studio confirmed that Deadlight Tavern is released, free on Steam, and no
-longer a VR game. The Steam listing is outdated: do not copy its VR requirements,
-gameplay details, or other unconfirmed information into the website.
+Keep public claims grounded in information Minnsace Inc. has confirmed. The site
+describes Deadlight Tavern as released and free to play on Steam; avoid carrying
+over gameplay, compatibility, or platform details from external listings unless
+the studio confirms they remain current.
 
 ## GitHub Pages setup
 
