@@ -57,6 +57,10 @@ if (homepage) {
 }
 for (const [path, page] of pages) {
   for (const { attrs } of page.tags) {
+    if (attrs.href === "https://store.steampowered.com/app/2071710/") {
+      check(attrs.target === "_blank", `${page.file}: Steam links must open in a new tab`);
+      check(attrs.rel?.split(/\s+/).includes("noopener") && attrs.rel?.split(/\s+/).includes("noreferrer"), `${page.file}: external Steam links must be protected`);
+    }
     for (const ref of [attrs.href, attrs.src].filter((value) => value !== undefined)) {
       if (/^(?:[a-z][\w+.-]*:|\/\/)/i.test(ref)) continue;
       const url = new URL(ref, "https://local.invalid/");

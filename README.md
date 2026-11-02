@@ -20,8 +20,8 @@ No install or build step is needed. Open `index.html` in a browser, or use your
 preferred static HTTP server. Check desktop and narrow mobile widths, keyboard
 navigation, the Steam link, and the email link. The automated check verifies local
 links and anchors, metadata, image alt attributes, required images, sitemap entries,
-deployment inputs, and absence of outdated VR claims; it is not a full HTML or
-accessibility audit.
+deployment inputs, structured data, and the published Steam link; it is not a full
+HTML or accessibility audit.
 
 Keep public claims grounded in information Minnsace Inc. has confirmed. The site
 describes Deadlight Tavern as released and free to play on Steam; avoid carrying
