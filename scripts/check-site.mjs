@@ -30,7 +30,7 @@ for (const file of readdirSync(root).filter((file) => file.endsWith(".html"))) {
   }
   pages.set(resolve(root, file), { ids: new Set(ids), tags, file, html });
 }
-check(pages.size >= 2, "Expected homepage and privacy page");
+check(pages.size >= 3, "Expected homepage, About page, and privacy page");
 const homepage = pages.get(resolve(root, "index.html"));
 if (homepage) {
   const { html } = homepage;
@@ -55,11 +55,39 @@ if (homepage) {
     }
   }
 }
+const aboutPage = pages.get(resolve(root, "about.html"));
+if (aboutPage) {
+  const { html } = aboutPage;
+  for (const profile of [
+    "https://www.linkedin.com/in/austinmcgaugh/",
+    "https://www.linkedin.com/company/minnsace",
+  ]) {
+    check(html.includes(profile), `About page must link to ${profile}`);
+  }
+  check(html.includes("Austin McGaugh is the founder of Minnsace Inc."), "About page must state the confirmed founder relationship");
+  check(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/minnsace\.com\/about\.html["']/i.test(html), "About page canonical URL must identify its public URL");
+  const schemaBlocks = [...html.matchAll(/<script\b(?=[^>]*type=["']application\/ld\+json["'])[^>]*>([\s\S]*?)<\/script>/gi)];
+  check(schemaBlocks.length === 1, "About page must have one JSON-LD script");
+  if (schemaBlocks.length === 1) {
+    try {
+      const schema = JSON.parse(schemaBlocks[0][1]);
+      const founder = schema["@graph"]?.find((item) => item["@type"] === "Person");
+      check(founder?.name === "Austin McGaugh" && founder?.jobTitle === "Founder", "Founder structured data must match the visible biography");
+      check(founder?.url === "https://www.linkedin.com/in/austinmcgaugh/", "Founder structured data must link to the confirmed LinkedIn profile");
+    } catch (error) {
+      check(false, `Invalid About page JSON-LD: ${error.message}`);
+    }
+  }
+}
 for (const [path, page] of pages) {
   for (const { attrs } of page.tags) {
     if (attrs.href === "https://store.steampowered.com/app/2071710/") {
       check(attrs.target === "_blank", `${page.file}: Steam links must open in a new tab`);
       check(attrs.rel?.split(/\s+/).includes("noopener") && attrs.rel?.split(/\s+/).includes("noreferrer"), `${page.file}: external Steam links must be protected`);
+    }
+    if (attrs.href === "https://www.linkedin.com/in/austinmcgaugh/" || attrs.href === "https://www.linkedin.com/company/minnsace") {
+      check(attrs.target === "_blank", `${page.file}: LinkedIn links must open in a new tab`);
+      check(attrs.rel?.split(/\s+/).includes("noopener") && attrs.rel?.split(/\s+/).includes("noreferrer"), `${page.file}: external LinkedIn links must be protected`);
     }
     for (const ref of [attrs.href, attrs.src].filter((value) => value !== undefined)) {
       if (/^(?:[a-z][\w+.-]*:|\/\/)/i.test(ref)) continue;
@@ -89,7 +117,9 @@ for (const text of ["Minnsace Inc.", "mailto:hello@minnsace.com", "https://store
   check(read("index.html").includes(text), `Missing confirmed company/game information: ${text}`);
 }
 check(!/\bVR.only\b|virtual reality|tracked controllers|compatible VR headset/i.test(read("index.html")), "Outdated VR claims must not return");
-check(read("sitemap.xml").includes("<loc>https://minnsace.com/</loc>"), "Missing homepage sitemap entry");
+for (const url of ["https://minnsace.com/", "https://minnsace.com/about.html", "https://minnsace.com/privacy.html"]) {
+  check(read("sitemap.xml").includes(`<loc>${url}</loc>`), `Missing sitemap entry: ${url}`);
+}
 check(read("robots.txt").includes("Sitemap: https://minnsace.com/sitemap.xml"), "robots.txt must reference the sitemap");
 assert.equal(errors.length, 0, `Site checks failed:\n${errors.join("\n")}`);
-console.log(`PASS: ${pages.size} pages; local links, anchors, SEO metadata, visible JSON-LD, image alt attributes, PNG assets, sitemap, and confirmed company/game information.`);
+console.log(`PASS: ${pages.size} pages; local links, anchors, SEO metadata, visible JSON-LD, founder profiles, image alt attributes, PNG assets, sitemap, and confirmed company/game information.`);

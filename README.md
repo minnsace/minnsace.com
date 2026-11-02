@@ -1,7 +1,8 @@
 # Minnsace Inc. studio website
 
 Static website for **Minnsace Inc.**, built for `https://minnsace.com`.
-The site provides information about the independent studio, its released game **Deadlight Tavern**, the official
+The site provides information about the independent studio, founder Austin
+McGaugh, its released game **Deadlight Tavern**, the official
 [Steam store page](https://store.steampowered.com/app/2071710/), and
 `hello@minnsace.com`. It has no JavaScript, framework, third-party embeds, or build
 dependencies. Brand images are supplied by the studio; `minnsace-logo.png` is a
@@ -18,7 +19,7 @@ npm run check
 
 No install or build step is needed. Open `index.html` in a browser, or use your
 preferred static HTTP server. Check desktop and narrow mobile widths, keyboard
-navigation, the Steam link, and the email link. The automated check verifies local
+navigation, the Steam and LinkedIn links, and the email link. The automated check verifies local
 links and anchors, metadata, image alt attributes, required images, sitemap entries,
 deployment inputs, structured data, and the published Steam link; it is not a full
 HTML or accessibility audit.
@@ -27,6 +28,10 @@ Keep public claims grounded in information Minnsace Inc. has confirmed. The site
 describes Deadlight Tavern as released and free to play on Steam; avoid carrying
 over gameplay, compatibility, or platform details from external listings unless
 the studio confirms they remain current.
+
+The About page uses only confirmed founder information: Austin McGaugh founded
+Minnsace Inc. Add further biography details only when provided and approved by
+the studio.
 
 ## GitHub Pages setup
 

@@ -27,7 +27,7 @@ jobs:
       - name: Package public files
         run: |
           mkdir _site
-          cp index.html privacy.html styles.css CNAME .nojekyll robots.txt sitemap.xml _site/
+          cp index.html about.html privacy.html styles.css CNAME .nojekyll robots.txt sitemap.xml _site/
           cp -r assets _site/assets
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
