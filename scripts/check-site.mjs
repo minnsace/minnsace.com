@@ -64,7 +64,7 @@ if (aboutPage) {
   ]) {
     check(html.includes(profile), `About page must link to ${profile}`);
   }
-  check(html.includes("Austin McGaugh is the founder of Minnsace Inc."), "About page must state the confirmed founder relationship");
+  check(html.includes("founded by Austin McGaugh"), "About page must state the confirmed founder relationship");
   check(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/minnsace\.com\/about\.html["']/i.test(html), "About page canonical URL must identify its public URL");
   const schemaBlocks = [...html.matchAll(/<script\b(?=[^>]*type=["']application\/ld\+json["'])[^>]*>([\s\S]*?)<\/script>/gi)];
   check(schemaBlocks.length === 1, "About page must have one JSON-LD script");
