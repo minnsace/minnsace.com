@@ -5,9 +5,10 @@ The site provides information about the independent studio, founder Austin
 McGaugh, its released game **Deadlight Tavern**, the official
 [Steam store page](https://store.steampowered.com/app/2071710/), and
 `hello@minnsace.com`. It has no JavaScript, framework, third-party embeds, or build
-dependencies. Brand images are supplied by the studio; `minnsace-logo.png` is a
-crop of the supplied wordmark. The game tile is typographic site artwork, not a
-gameplay screenshot.
+dependencies. The separate About page links to the founder's LinkedIn profile
+and Minnsace Inc.'s LinkedIn page. Brand images are supplied by the studio;
+`minnsace-logo.png` is a crop of the supplied wordmark. The game tile is
+typographic site artwork, not a gameplay screenshot.
 
 ## Local checks and preview
 
@@ -19,10 +20,10 @@ npm run check
 
 No install or build step is needed. Open `index.html` in a browser, or use your
 preferred static HTTP server. Check desktop and narrow mobile widths, keyboard
-navigation, the Steam and LinkedIn links, and the email link. The automated check verifies local
-links and anchors, metadata, image alt attributes, required images, sitemap entries,
-deployment inputs, structured data, and the published Steam link; it is not a full
-HTML or accessibility audit.
+navigation, the Steam and LinkedIn links, and the email link. The automated check
+verifies local links and anchors, metadata, image alt attributes, required images,
+sitemap entries, deployment inputs, structured data, and external link behavior;
+it is not a full HTML or accessibility audit.
 
 Keep public claims grounded in information Minnsace Inc. has confirmed. The site
 describes Deadlight Tavern as released and free to play on Steam; avoid carrying
@@ -55,8 +56,8 @@ repository secrets are required. If policy requires approvals for the
 
 The site includes descriptive page titles and summaries, canonical URLs,
 Open Graph and social preview metadata, an XML sitemap, a `robots.txt` sitemap
-reference, and JSON-LD for the studio, website, and released game. The structured
-data is limited to information shown on the page and confirmed by the studio.
+reference, and JSON-LD for the studio, website, released game, and founder. The
+structured data is limited to information shown on the page and confirmed by the studio.
 There are no keyword lists, tracking scripts, or search-specific filler content.
 
 After the custom domain resolves publicly over HTTPS:
@@ -143,6 +144,7 @@ Sources:
 
 ## Editing
 
-Edit `index.html`, `privacy.html`, and `styles.css` directly. Keep company and game
-claims grounded in confirmed information. Keep Steam App ID `2071710` in store links.
-Only files explicitly copied into `_site` by the deployment workflow are published.
+Edit `index.html`, `about.html`, `privacy.html`, and `styles.css` directly. Keep
+company and game claims grounded in confirmed information. Keep Steam App ID
+`2071710` in store links. Only files explicitly copied into `_site` by the
+deployment workflow are published.
