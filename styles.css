@@ -1,0 +1,155 @@
+:root {
+  color-scheme: dark;
+  --navy: #101728;
+  --ink: #172032;
+  --muted: #a9b5c8;
+  --cyan: #0ea5df;
+  --paper: #f3f4f0;
+  --line: #ffffff24;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--paper);
+  background: var(--navy);
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; text-underline-offset: .22em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 3px solid var(--cyan); outline-offset: 6px; border-radius: 2px; }
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3, p { margin: 0; }
+p { line-height: 1.75; }
+.wrap, .site-header { width: min(1240px, calc(100% - 112px)); margin-inline: auto; }
+.skip-link { position: absolute; z-index: 5; top: -100px; left: 20px; padding: 14px 20px; color: var(--navy); background: white; }
+.skip-link:focus { top: 16px; }
+.site-header { display: flex; justify-content: space-between; align-items: center; min-height: 108px; border-bottom: 1px solid var(--line); }
+.brand { width: 172px; display: block; }
+.brand img { width: 100%; }
+nav { display: flex; align-items: center; gap: 34px; }
+nav a { font-size: .88rem; font-weight: 600; text-decoration: none; }
+.nav-contact { border: 1px solid #ffffff50; padding: 12px 18px; border-radius: 4px; }
+.nav-contact span { margin-left: 18px; color: var(--cyan); }
+.hero { position: relative; padding-top: 102px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; }
+.eyebrow { font-size: .7rem; font-weight: 700; letter-spacing: .15em; line-height: 1.5; }
+.status-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); margin-right: 9px; vertical-align: 2px; }
+h1 { margin-top: 28px; font-size: clamp(3.2rem, 5.8vw, 5.6rem); font-weight: 600; line-height: 1.04; letter-spacing: -.065em; }
+h1 em { font-style: normal; color: var(--cyan); }
+.hero-description { margin-top: 28px; color: #b6c1d2; font-size: 1.02rem; }
+.button { display: inline-flex; gap: 35px; justify-content: space-between; align-items: center; padding: 17px 23px; border-radius: 4px; font-size: .9rem; font-weight: 700; text-decoration: none; transition: background .15s, transform .15s; }
+.button:hover { transform: translateY(-2px); }
+.button-light { margin-top: 33px; color: var(--navy); background: var(--paper); }
+.button-light:hover { background: #d3f0fc; }
+.button-dark { color: white; background: var(--navy); }
+.button-dark:hover { background: #243650; }
+.button span { font-size: 1.15rem; }
+.hero-art { position: relative; display: grid; place-items: center; aspect-ratio: 1; isolation: isolate; overflow: hidden; background: radial-gradient(ellipse at center, #13334e70, transparent 70%); }
+.hero-art img { width: 66%; mix-blend-mode: lighten; transform: rotate(-12deg); }
+.orbit { position: absolute; border: 1px solid #1a71954d; border-radius: 50%; z-index: -1; }
+.orbit-one { width: 90%; height: 90%; }
+.orbit-two { width: 70%; height: 70%; }
+.art-corner { position: absolute; width: 22px; height: 22px; border-color: #537187; border-style: solid; }
+.corner-top { top: 7%; left: 7%; border-width: 1px 0 0 1px; }
+.corner-bottom { bottom: 7%; right: 7%; border-width: 0 1px 1px 0; }
+.art-caption { position: absolute; bottom: 1%; color: #a9b5c8; font-size: .6rem; letter-spacing: .2em; }
+.hero-footnote { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); margin-top: 52px; padding: 24px 0; font-size: .72rem; color: var(--muted); }
+.hero-footnote > span:last-child { font-size: .6rem; letter-spacing: .12em; }
+.hero-footnote > span:last-child span { margin-left: 25px; color: var(--cyan); }
+.games-section { background: var(--paper); color: var(--ink); padding: 88px 0 66px; color-scheme: light; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; margin-bottom: 36px; gap: 20px; }
+h2 { font-size: clamp(2.4rem, 4vw, 3.8rem); font-weight: 600; letter-spacing: -.055em; line-height: 1.12; }
+.game-card { display: grid; grid-template-columns: 1fr 1fr; background: white; border: 1px solid #17203215; border-radius: 8px; overflow: hidden; }
+.game-art { position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 34px; color: #f4e3bf; background: radial-gradient(ellipse at 50% 40%, #5b4530 0, #302a27 42%, #1d2025 100%); min-height: 550px; overflow: hidden; }
+.game-art::before { content: ""; position: absolute; inset: 18px; border: 1px solid #d5b67b50; pointer-events: none; }
+.game-art-label, .game-art-footer { position: relative; font-size: .62rem; letter-spacing: .19em; }
+.game-art-footer { display: flex; justify-content: space-between; border-top: 1px solid #d5b67b50; padding-top: 17px; }
+.tavern-mark { width: 120px; height: 120px; border: 1px solid #d5b67b80; transform: rotate(45deg); align-self: center; display: grid; place-items: center; margin: 46px 0 24px; }
+.tavern-mark span { display: block; transform: rotate(-45deg); font-family: Georgia, serif; font-size: 2.8rem; letter-spacing: -.1em; }
+.game-art > p { font-family: Georgia, serif; font-size: clamp(2.2rem, 3.5vw, 3.4rem); text-align: center; line-height: 1.15; letter-spacing: .02em; margin: 20px 0 60px; }
+.game-art > p span { font-size: .62em; letter-spacing: .24em; }
+.game-details { padding: 46px; }
+.release-label { font-size: .62rem; letter-spacing: .11em; font-weight: 700; }
+.release-label .status-dot { background: #24765a; }
+h3 { font-size: 2rem; letter-spacing: -.04em; font-weight: 600; }
+.game-details h3 { margin: 21px 0; }
+.game-details > p:not(.release-label):not(.platform-note) { font-size: .93rem; color: #515c6b; margin-top: 15px; }
+.game-facts { margin: 28px 0; padding: 20px 0; border-top: 1px solid #17203220; border-bottom: 1px solid #17203220; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.game-facts dt { font-size: .66rem; color: #5b6573; margin-bottom: 5px; }
+.game-facts dd { font-size: .8rem; font-weight: 600; margin: 0; }
+.platform-note { margin-top: 15px; color: #65707c; font-size: .7rem; }
+.game-help { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; border-top: 1px solid #17203220; padding-top: 27px; margin-top: 32px; }
+.game-help h3 { font-size: 1rem; letter-spacing: -.01em; }
+.game-help p { font-size: .85rem; color: #515c6b; }
+.studio-section { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; padding-block: 100px; }
+.studio-section h2 { margin-top: 28px; }
+.studio-copy .large-copy { font-size: 1.5rem; line-height: 1.5; color: var(--paper); letter-spacing: -.025em; }
+.studio-copy p { margin-bottom: 23px; color: var(--muted); font-size: .95rem; }
+.studio-copy a { color: var(--paper); }
+.studio-signature { display: flex; gap: 14px; align-items: center; font-size: .58rem; letter-spacing: .12em; margin-top: 36px; }
+.studio-signature > span:not(.signature-line) { color: #5e6f84; }
+.signature-line { width: 28px; height: 2px; background: var(--cyan); }
+.contact-section { background: #162235; padding: 78px 0; border-block: 1px solid var(--line); }
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+.contact-section h2 { margin: 22px 0; }
+.contact-section p:not(.eyebrow) { font-size: .88rem; color: #b8c2d0; }
+.email-link { display: flex; justify-content: space-between; gap: 20px; align-items: center; font-size: clamp(1.1rem, 2.3vw, 2rem); letter-spacing: -.03em; text-decoration: none; border-bottom: 1px solid #7891a9; padding-bottom: 19px; margin-bottom: 22px; overflow-wrap: anywhere; }
+.email-link span { color: var(--cyan); }
+.contact-details p.contact-note { font-size: .72rem; margin-top: 13px; color: #a9b5c8; }
+.site-footer { display: grid; grid-template-columns: 1fr auto; gap: 36px; padding-block: 43px 28px; }
+.site-footer strong { font-size: 1.1rem; font-weight: 600; }
+.site-footer div p { font-size: .75rem; color: var(--muted); margin-top: 8px; }
+.site-footer nav a { font-size: .75rem; color: #c6d0dc; }
+.copyright { grid-column: 1 / -1; color: #a9b5c8; font-size: .65rem; border-top: 1px solid var(--line); padding-top: 20px; }
+.document { max-width: 760px; padding-block: 70px 90px; }
+.document h1 { font-size: 3.4rem; margin: 20px 0 30px; }
+.document h2 { font-size: 1.5rem; margin: 35px 0 14px; letter-spacing: -.02em; }
+.document p { color: #b8c2d0; font-size: 1rem; line-height: 1.8; margin-bottom: 16px; }
+.document a { color: var(--paper); }
+@media (min-width: 1500px) { .hero { padding-top: 120px; } }
+@media (max-width: 1050px) {
+  .wrap, .site-header { width: calc(100% - 64px); }
+  .hero { padding-top: 65px; gap: 20px; }
+  .game-details { padding: 30px; }
+  .game-art { padding: 28px; }
+  .studio-section, .contact-layout { gap: 40px; }
+}
+@media (max-width: 760px) {
+  .wrap, .site-header { width: calc(100% - 40px); }
+  .site-header { min-height: 90px; flex-wrap: wrap; gap: 18px; padding-block: 24px; }
+  .brand { width: 150px; }
+  nav { gap: 20px; }
+  nav a { font-size: .78rem; }
+  .nav-contact { padding: 8px 11px; }
+  .nav-contact span { margin-left: 5px; }
+  .hero { padding-top: 54px; grid-template-columns: 1fr; gap: 30px; }
+  h1 { font-size: clamp(3rem, 9.5vw, 4.7rem); }
+  .hero-art { max-width: 360px; width: 100%; justify-self: center; }
+  .hero-footnote { margin-top: 0; gap: 20px; font-size: .63rem; }
+  .hero-footnote > span:last-child { font-size: .5rem; }
+  .hero-footnote > span:last-child span { margin-left: 5px; }
+  .games-section { padding-top: 55px; }
+  .section-heading { display: block; }
+  .section-heading h2 { margin-top: 20px; }
+  .game-card { grid-template-columns: 1fr; }
+  .game-art { min-height: 420px; }
+  .game-art > p { font-size: 2.8rem; margin-bottom: 35px; }
+  .tavern-mark { width: 85px; height: 85px; margin: 30px 0; }
+  .tavern-mark span { font-size: 2.2rem; }
+  .game-details { padding: 30px 25px; }
+  .game-help { grid-template-columns: 1fr; gap: 12px; }
+  .studio-section, .contact-layout { grid-template-columns: 1fr; gap: 32px; }
+  .studio-section { padding-block: 65px; }
+  .studio-copy .large-copy { font-size: 1.3rem; }
+  .contact-section { padding-block: 55px; }
+  .email-link { font-size: clamp(1.2rem, 6vw, 1.8rem); }
+  .site-footer { grid-template-columns: 1fr; gap: 25px; }
+  .site-footer nav { flex-wrap: wrap; gap: 25px; }
+  .desktop-break { display: none; }
+  .document { padding-block: 45px; }
+  .document h1 { font-size: 2.6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  .button { transition: none; }
+  .button:hover { transform: none; }
+}

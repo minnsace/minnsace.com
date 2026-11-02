@@ -1,0 +1,11 @@
+{
+  "name": "minnsace-studio-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-site.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
