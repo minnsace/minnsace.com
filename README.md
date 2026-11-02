@@ -46,6 +46,34 @@ The workflow deliberately does not deploy arbitrary feature branches. No
 repository secrets are required. If policy requires approvals for the
 `github-pages` environment, approve the deployment under Actions.
 
+## Search visibility
+
+The site includes descriptive page titles and summaries, canonical URLs,
+Open Graph and social preview metadata, an XML sitemap, a `robots.txt` sitemap
+reference, and JSON-LD for the studio, website, and released game. The structured
+data is limited to information shown on the page and confirmed by the studio.
+There are no keyword lists, tracking scripts, or search-specific filler content.
+
+After the custom domain resolves publicly over HTTPS:
+
+1. Add `minnsace.com` as a **Domain** property in
+   [Google Search Console](https://search.google.com/search-console/).
+2. Google will provide a DNS TXT verification value. Add it as an additional TXT
+   record at `@` in GoDaddy; do not replace the existing Proton Mail TXT records.
+   Keep the verification record so domain ownership remains verified.
+3. In Search Console, submit `https://minnsace.com/sitemap.xml`. Use URL
+   Inspection to check the homepage and request indexing if Google has not
+   discovered it.
+4. Optionally add the site to [Bing Webmaster Tools](https://www.bing.com/webmasters/)
+   and submit the same sitemap.
+
+Google decides whether and when to crawl, index, and rank a site. Metadata,
+sitemaps, and structured data help describe and discover pages but cannot
+guarantee search placement. Search visibility can take time and depends in part
+on the relevance and usefulness of the site to people looking for the studio or
+its game. Avoid publishing unconfirmed game details or adding repetitive
+keyword-focused content.
+
 ## Exact GoDaddy DNS records
 
 In GoDaddy: **My Products → Domains → minnsace.com → DNS → Manage DNS**.

@@ -28,9 +28,33 @@ for (const file of readdirSync(root).filter((file) => file.endsWith(".html"))) {
   for (const tag of tags.filter(({ name }) => name === "img")) {
     check(Object.hasOwn(tag.attrs, "alt"), `${file}: image lacks alt attribute`);
   }
-  pages.set(resolve(root, file), { ids: new Set(ids), tags, file });
+  pages.set(resolve(root, file), { ids: new Set(ids), tags, file, html });
 }
 check(pages.size >= 2, "Expected homepage and privacy page");
+const homepage = pages.get(resolve(root, "index.html"));
+if (homepage) {
+  const { html } = homepage;
+  for (const property of ["og:title", "og:description", "og:url", "og:image", "twitter:card", "twitter:title", "twitter:description", "twitter:image"]) {
+    check(new RegExp(`<meta\\s+[^>]*(?:property|name)=["']${property}["']`, "i").test(html), `Homepage missing ${property}`);
+  }
+  check(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/minnsace\.com\/["']/i.test(html), "Homepage canonical URL must identify minnsace.com");
+  const schemaBlocks = [...html.matchAll(/<script\b(?=[^>]*type=["']application\/ld\+json["'])[^>]*>([\s\S]*?)<\/script>/gi)];
+  check(schemaBlocks.length === 1, "Homepage must have one JSON-LD script");
+  if (schemaBlocks.length === 1) {
+    try {
+      const schema = JSON.parse(schemaBlocks[0][1]);
+      const graph = schema["@graph"];
+      check(schema["@context"] === "https://schema.org" && Array.isArray(graph), "Invalid JSON-LD graph");
+      const organization = graph?.find((item) => item["@type"] === "Organization");
+      const game = graph?.find((item) => item["@type"] === "VideoGame");
+      check(organization?.name === "Minnsace Inc." && organization?.email === "hello@minnsace.com", "Organization structured data must match published contact details");
+      check(game?.name === "Deadlight Tavern" && game?.sameAs === "https://store.steampowered.com/app/2071710/", "Game structured data must match confirmed game listing");
+      check(game?.description && html.includes(game.description), "Structured game description must also be visible on the page");
+    } catch (error) {
+      check(false, `Invalid homepage JSON-LD: ${error.message}`);
+    }
+  }
+}
 for (const [path, page] of pages) {
   for (const { attrs } of page.tags) {
     for (const ref of [attrs.href, attrs.src].filter((value) => value !== undefined)) {
@@ -62,5 +86,6 @@ for (const text of ["Minnsace Inc.", "mailto:hello@minnsace.com", "https://store
 }
 check(!/\bVR.only\b|virtual reality|tracked controllers|compatible VR headset/i.test(read("index.html")), "Outdated VR claims must not return");
 check(read("sitemap.xml").includes("<loc>https://minnsace.com/</loc>"), "Missing homepage sitemap entry");
+check(read("robots.txt").includes("Sitemap: https://minnsace.com/sitemap.xml"), "robots.txt must reference the sitemap");
 assert.equal(errors.length, 0, `Site checks failed:\n${errors.join("\n")}`);
-console.log(`PASS: ${pages.size} pages; local links, anchors, metadata, image alt attributes, PNG assets, deployment inputs, and confirmed company/game information.`);
+console.log(`PASS: ${pages.size} pages; local links, anchors, SEO metadata, visible JSON-LD, image alt attributes, PNG assets, sitemap, and confirmed company/game information.`);
