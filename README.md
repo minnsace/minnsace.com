@@ -1,7 +1,7 @@
 # Minnsace Inc. studio website
 
-Static, responsive website for **Minnsace Inc.**, built for `https://minnsace.com`.
-The site presents the studio, its released game **Deadlight Tavern**, the official
+Static website for **Minnsace Inc.**, built for `https://minnsace.com`.
+The site provides information about the independent studio, its released game **Deadlight Tavern**, the official
 [Steam store page](https://store.steampowered.com/app/2071710/), and
 `hello@minnsace.com`. It has no JavaScript, framework, third-party embeds, or build
 dependencies. Brand images are supplied by the studio; `minnsace-logo.png` is a
