@@ -2,13 +2,19 @@
 
 Static website for **Minnsace Inc.**, built for `https://minnsace.com`.
 The site provides information about the independent studio, founder Austin
-McGaugh, its released game **Deadlight Tavern**, the official
-[Steam store page](https://store.steampowered.com/app/2071710/), and
+McGaugh, its released game **Deadlight Tavern**, the in-development game
+**The Lethecary**, the official
+[Steam store page](https://store.steampowered.com/app/2071710/Deadlight_Tavern/), and
 `hello@minnsace.com`. It has no JavaScript, framework, third-party embeds, or build
-dependencies. The separate About page links to the founder's LinkedIn profile
-and Minnsace Inc.'s LinkedIn page. Brand images are supplied by the studio;
-`minnsace-logo.png` is a crop of the supplied wordmark. The game tile is
-typographic site artwork, not a gameplay screenshot.
+dependencies. The homepage and About page link to
+[austinmcgaugh.com](https://austinmcgaugh.com/) and
+[Austin McGaugh's about page](https://austinmcgaugh.com/about/). The About page
+also links to the founder's LinkedIn profile and Minnsace Inc.'s LinkedIn page.
+The Lethecary links to its [project page](https://austinmcgaugh.com/projects/the-lethecary/)
+and has no store listing yet. Brand images are supplied by the studio;
+`minnsace-logo.png` is a crop of the supplied wordmark. `favicon.png` (32×32)
+and `apple-touch-icon.png` (180×180) are resized from `minnsace-icon.png` for
+browser icons. The game tile is typographic site artwork, not a gameplay screenshot.
 
 ## Local checks and preview
 
@@ -55,9 +61,15 @@ repository secrets are required. If policy requires approvals for the
 ## Search visibility
 
 The site includes descriptive page titles and summaries, canonical URLs,
-Open Graph and social preview metadata, an XML sitemap, a `robots.txt` sitemap
-reference, and JSON-LD for the studio, website, released game, and founder. The
-structured data is limited to information shown on the page and confirmed by the studio.
+Open Graph and social preview metadata (`twitter:site` is `@minnsace`), an
+`index, follow` robots directive on public pages, an XML sitemap with
+`lastmod`, a `robots.txt` sitemap reference, a custom 404 page, and JSON-LD
+for the studio, website, released game, and founder. The founder entity uses
+`https://austinmcgaugh.com/#person`. Deadlight Tavern's structured data uses
+the full Steam URL, the itch.io page, the Steam genres Action and Indie, and
+the Steam capsule image. The structured data is limited to information shown
+on the page and confirmed by the studio, except that sameAs profiles and the
+Steam capsule identify the existing entities.
 There are no keyword lists, tracking scripts, or search-specific filler content.
 
 After the custom domain resolves publicly over HTTPS:
@@ -144,7 +156,7 @@ Sources:
 
 ## Editing
 
-Edit `index.html`, `about.html`, `privacy.html`, and `styles.css` directly. Keep
+Edit `index.html`, `about.html`, `privacy.html`, `404.html`, and `styles.css` directly. Keep
 company and game claims grounded in confirmed information. Keep Steam App ID
 `2071710` in store links. Only files explicitly copied into `_site` by the
 deployment workflow are published.

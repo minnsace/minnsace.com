@@ -18,8 +18,11 @@
     <meta name="twitter:description" content="Minnsace Inc. is an independent game studio creating games. Deadlight Tavern is available free on Steam.">
     <meta name="twitter:image" content="https://minnsace.com/assets/minnsace-banner.png">
     <meta name="twitter:image:alt" content="Minnsace wordmark on a dark navy background">
+    <meta name="twitter:site" content="@minnsace">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://minnsace.com/">
-    <link rel="icon" type="image/png" href="assets/minnsace-icon.png">
+    <link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
     <link rel="stylesheet" href="styles.css">
     <title>Minnsace Inc. | Independent Game Studio</title>
     <script type="application/ld+json">
@@ -32,8 +35,15 @@
             "name": "Minnsace Inc.",
             "url": "https://minnsace.com/",
             "email": "hello@minnsace.com",
-            "sameAs": "https://www.linkedin.com/company/minnsace",
-            "founder": { "@id": "https://minnsace.com/about.html#austin-mcgaugh" },
+            "sameAs": [
+              "https://www.linkedin.com/company/minnsace",
+              "https://github.com/minnsace",
+              "https://x.com/minnsace",
+              "https://itch.io/profile/minnsace",
+              "https://store.steampowered.com/app/2071710/Deadlight_Tavern/",
+              "https://austinmcgaugh.com/"
+            ],
+            "founder": { "@id": "https://austinmcgaugh.com/#person" },
             "logo": {
               "@type": "ImageObject",
               "url": "https://minnsace.com/assets/minnsace-icon.png"
@@ -48,11 +58,30 @@
             "inLanguage": "en"
           },
           {
+            "@type": "Person",
+            "@id": "https://austinmcgaugh.com/#person",
+            "name": "Austin McGaugh",
+            "jobTitle": "Founder",
+            "url": "https://austinmcgaugh.com/",
+            "sameAs": [
+              "https://www.linkedin.com/in/austinmcgaugh/",
+              "https://x.com/AustinMcGaugh",
+              "https://www.youtube.com/@AustinMcGaugh",
+              "https://github.com/minnsace"
+            ],
+            "worksFor": { "@id": "https://minnsace.com/#organization" }
+          },
+          {
             "@type": "VideoGame",
             "@id": "https://minnsace.com/#deadlight-tavern",
             "name": "Deadlight Tavern",
             "url": "https://minnsace.com/#games",
-            "sameAs": "https://store.steampowered.com/app/2071710/",
+            "sameAs": [
+              "https://store.steampowered.com/app/2071710/Deadlight_Tavern/",
+              "https://minnsace.itch.io/deadlight-tavern"
+            ],
+            "genre": ["Action", "Indie"],
+            "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2071710/d1c176b8940c6a5c50498b097753d590faa1a96a/capsule_616x353.jpg",
             "creator": { "@id": "https://minnsace.com/#organization" },
             "description": "Deadlight Tavern is a game developed by Minnsace Inc. It is available free to play on Steam."
           }
@@ -78,6 +107,7 @@
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> MINNSACE INC. / INDEPENDENT GAME STUDIO</p>
           <h1 id="hero-title">Independent<br>game <em>studio.</em></h1>
           <p class="hero-description">Minnsace Inc. is an independent studio creating games. Our released game, Deadlight Tavern, is available free on Steam.</p>
+          <p class="hero-founder">Founded by <a href="https://austinmcgaugh.com/" target="_blank" rel="noopener noreferrer">Austin McGaugh</a>. <a href="https://austinmcgaugh.com/about/" target="_blank" rel="noopener noreferrer">About the founder</a>.</p>
           <a class="button button-light" href="#games">View our game <span aria-hidden="true">&darr;</span></a>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -113,32 +143,47 @@
                 <div><dt>Available through</dt><dd>Steam</dd></div>
                 <div><dt>Price</dt><dd>Free to play</dd></div>
                 <div><dt>Status</dt><dd>Released</dd></div>
+                <div><dt>Genre</dt><dd>Action, Indie</dd></div>
               </dl>
-              <a class="button button-dark" href="https://store.steampowered.com/app/2071710/" target="_blank" rel="noopener noreferrer">View on Steam <span aria-hidden="true">&nearr;</span></a>
+              <a class="button button-dark" href="https://store.steampowered.com/app/2071710/Deadlight_Tavern/" target="_blank" rel="noopener noreferrer">View on Steam <span aria-hidden="true">&nearr;</span></a>
               <p class="platform-note">Steam account required to download and play.</p>
             </div>
           </article>
           <div class="game-help">
             <h3>Game information</h3>
-            <p>For current game details, visit the <a href="https://store.steampowered.com/app/2071710/" target="_blank" rel="noopener noreferrer">Steam store page</a>. For support enquiries, contact the studio at <a href="mailto:hello@minnsace.com">hello@minnsace.com</a> and include the game name and a description of your question.</p>
+            <p>For current game details, visit the <a href="https://store.steampowered.com/app/2071710/Deadlight_Tavern/" target="_blank" rel="noopener noreferrer">Steam store page</a>. For support enquiries, contact the studio at <a href="mailto:hello@minnsace.com">hello@minnsace.com</a> and include the game name and a description of your question.</p>
           </div>
+        </div>
+      </section>
+      <section class="project-section wrap" id="lethecary" aria-labelledby="lethecary-title">
+        <div>
+          <p class="eyebrow">02 / IN DEVELOPMENT</p>
+          <h2 id="lethecary-title">In development: The Lethecary</h2>
+        </div>
+        <div class="project-copy">
+          <p>The Lethecary is a first-person psychological horror game in Unreal Engine 5. You play a psychiatrist who rewrites the memories of paranormal survivors inside their dreams.</p>
+          <a class="text-link" href="https://austinmcgaugh.com/projects/the-lethecary/" target="_blank" rel="noopener noreferrer">The Lethecary <span aria-hidden="true">&nearr;</span></a>
         </div>
       </section>
       <section class="studio-section wrap" id="studio" aria-labelledby="studio-title">
         <div>
-          <p class="eyebrow">02 / ABOUT</p>
+          <p class="eyebrow">03 / ABOUT</p>
           <h2 id="studio-title">The studio</h2>
         </div>
         <div class="studio-copy">
           <p class="large-copy">An independent game studio founded by Austin McGaugh.</p>
           <p>Learn more about Minnsace Inc. and its founder.</p>
-          <a class="text-link" href="about.html">About the studio and its founder <span aria-hidden="true">&rarr;</span></a>
+          <div class="founder-links">
+            <a class="text-link" href="https://austinmcgaugh.com/" target="_blank" rel="noopener noreferrer">austinmcgaugh.com <span aria-hidden="true">&nearr;</span></a>
+            <a class="text-link" href="https://austinmcgaugh.com/about/" target="_blank" rel="noopener noreferrer">About Austin McGaugh <span aria-hidden="true">&nearr;</span></a>
+            <a class="text-link" href="about.html">About the studio <span aria-hidden="true">&rarr;</span></a>
+          </div>
         </div>
       </section>
       <section class="contact-section" id="contact" aria-labelledby="contact-title">
         <div class="wrap contact-layout">
           <div>
-            <p class="eyebrow">03 / CONTACT</p>
+            <p class="eyebrow">04 / CONTACT</p>
             <h2 id="contact-title">Contact</h2>
             <p>For questions about Minnsace Inc. or Deadlight Tavern, contact the studio by email.</p>
           </div>

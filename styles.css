@@ -36,9 +36,11 @@ nav a { font-size: .88rem; font-weight: 600; text-decoration: none; }
 h1 { margin-top: 28px; font-size: clamp(3.2rem, 5.8vw, 5.6rem); font-weight: 600; line-height: 1.04; letter-spacing: -.065em; }
 h1 em { font-style: normal; color: var(--cyan); }
 .hero-description { margin-top: 28px; color: #b6c1d2; font-size: 1.02rem; }
+.hero-founder { margin-top: 16px; color: #d5deea; font-size: 1.05rem; }
+.hero-founder a { color: var(--paper); font-weight: 700; }
 .button { display: inline-flex; gap: 35px; justify-content: space-between; align-items: center; padding: 17px 23px; border-radius: 4px; font-size: .9rem; font-weight: 700; text-decoration: none; transition: background .15s, transform .15s; }
 .button:hover { transform: translateY(-2px); }
-.button-light { margin-top: 33px; color: var(--navy); background: var(--paper); }
+.button-light { margin-top: 28px; color: var(--navy); background: var(--paper); }
 .button-light:hover { background: #d3f0fc; }
 .button-dark { color: white; background: var(--navy); }
 .button-dark:hover { background: #243650; }
@@ -80,11 +82,18 @@ h3 { font-size: 2rem; letter-spacing: -.04em; font-weight: 600; }
 .game-help { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; border-top: 1px solid #17203220; padding-top: 27px; margin-top: 32px; }
 .game-help h3 { font-size: 1rem; letter-spacing: -.01em; }
 .game-help p { font-size: .85rem; color: #515c6b; }
-.studio-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; padding-block: 76px; }
+.project-section { padding: 72px 0 64px; border-bottom: 1px solid var(--line); }
+.project-section h2 { margin-top: 16px; max-width: 16ch; font-size: clamp(2.1rem, 4vw, 3.2rem); }
 .studio-section h2 { margin-top: 24px; }
+.project-copy { max-width: 68ch; margin-top: 22px; }
+.project-copy p { color: var(--muted); font-size: 1.02rem; }
+.project-copy .text-link { margin-top: 18px; }
+.studio-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; padding-block: 76px; }
 .studio-copy .large-copy { font-size: 1.5rem; line-height: 1.5; color: var(--paper); letter-spacing: -.025em; }
 .studio-copy p { margin-bottom: 16px; color: var(--muted); font-size: .95rem; }
 .studio-copy a { color: var(--paper); }
+.founder-links { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 8px; }
+.founder-links .text-link { margin-top: 0; }
 .text-link { display: inline-flex; gap: 12px; align-items: center; margin-top: 4px; font-size: .9rem; font-weight: 600; }
 .text-link span, .profile-link span { color: var(--cyan); }
 .contact-section { background: #162235; padding: 78px 0; border-block: 1px solid var(--line); }
@@ -116,6 +125,9 @@ h3 { font-size: 2rem; letter-spacing: -.04em; font-weight: 600; }
 .profile-card > .eyebrow { grid-column: 1; }
 .profile-card h2 { grid-column: 2; font-size: 1.3rem; letter-spacing: -.035em; }
 .profile-link { grid-column: 3; display: inline-flex; align-items: center; gap: 8px; color: var(--paper); font-size: .8rem; font-weight: 600; white-space: nowrap; }
+.profile-card:has(.profile-actions) { grid-template-columns: 135px minmax(0, 1fr); row-gap: 10px; }
+.profile-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.profile-actions .profile-link { grid-column: auto; white-space: nowrap; }
 .about-home-link { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); font-size: .82rem; text-decoration: none; }
 .about-home-link:hover { color: var(--paper); }
 .document { max-width: 760px; padding-block: 70px 90px; }
@@ -123,6 +135,8 @@ h3 { font-size: 2rem; letter-spacing: -.04em; font-weight: 600; }
 .document h2 { font-size: 1.5rem; margin: 35px 0 14px; letter-spacing: -.02em; }
 .document p { color: #b8c2d0; font-size: 1rem; line-height: 1.8; margin-bottom: 16px; }
 .document a { color: var(--paper); }
+.missing-links { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.missing-links a { font-weight: 700; }
 .document .eyebrow { color: var(--paper); }
 @media (min-width: 1500px) { .hero { padding-top: 120px; } }
 @media (max-width: 1050px) {
@@ -159,6 +173,7 @@ h3 { font-size: 2rem; letter-spacing: -.04em; font-weight: 600; }
   .game-help { grid-template-columns: 1fr; gap: 12px; }
   .studio-section, .contact-layout { grid-template-columns: 1fr; gap: 32px; }
   .studio-section { padding-block: 65px; }
+  .project-section { padding-block: 56px 48px; }
   .studio-copy .large-copy { font-size: 1.3rem; }
   .about-page { width: calc(100% - 40px); padding-block: 46px 55px; }
   .about-intro { grid-template-columns: minmax(0, 1fr); gap: 26px; padding-bottom: 34px; }
@@ -169,6 +184,8 @@ h3 { font-size: 2rem; letter-spacing: -.04em; font-weight: 600; }
   .profile-card > .eyebrow { grid-column: 1; grid-row: 1; align-self: center; }
   .profile-card h2 { grid-column: 2; font-size: 1.15rem; }
   .profile-link { grid-column: 2; grid-row: 2; padding-top: 2px; white-space: normal; }
+  .profile-actions { grid-column: 1 / -1; justify-content: flex-start; }
+  .profile-actions .profile-link { grid-column: auto; grid-row: auto; white-space: normal; }
   .contact-section { padding-block: 55px; }
   .email-link { font-size: clamp(1.2rem, 6vw, 1.8rem); }
   .site-footer { gap: 16px; }
