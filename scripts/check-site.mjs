@@ -55,12 +55,18 @@ if (homepage) {
         "https://itch.io/profile/minnsace",
         "https://store.steampowered.com/app/2071710/Deadlight_Tavern/",
         "https://austinmcgaugh.com/",
+        "https://www.youtube.com/@Minnsace",
+        "https://www.tiktok.com/@minnsace",
+        "https://bsky.app/profile/minnsace.com",
+        "https://www.facebook.com/profile.php?id=61577445890097",
       ];
       const founderSameAs = [
         "https://www.linkedin.com/in/austinmcgaugh/",
         "https://x.com/AustinMcGaugh",
         "https://www.youtube.com/@AustinMcGaugh",
         "https://github.com/minnsace",
+        "https://github.com/AustinMcGaugh",
+        "https://www.instagram.com/austinmcgaugh/",
       ];
       check(organization?.["@id"] === "https://minnsace.com/#organization", "Organization @id must stay https://minnsace.com/#organization");
       check(organization?.name === "Minnsace Inc." && organization?.email === "hello@minnsace.com", "Organization structured data must match published contact details");
@@ -108,6 +114,10 @@ if (aboutPage) {
         "https://itch.io/profile/minnsace",
         "https://store.steampowered.com/app/2071710/Deadlight_Tavern/",
         "https://austinmcgaugh.com/",
+        "https://www.youtube.com/@Minnsace",
+        "https://www.tiktok.com/@minnsace",
+        "https://bsky.app/profile/minnsace.com",
+        "https://www.facebook.com/profile.php?id=61577445890097",
       ]), "About page Organization sameAs must list the confirmed profiles");
       check(founder?.name === "Austin McGaugh" && founder?.jobTitle === "Founder", "Founder structured data must match the visible biography");
       check(founder?.["@id"] === "https://austinmcgaugh.com/#person" && founder?.url === "https://austinmcgaugh.com/", "About page Person must use the austinmcgaugh.com entity");
@@ -116,6 +126,8 @@ if (aboutPage) {
         "https://x.com/AustinMcGaugh",
         "https://www.youtube.com/@AustinMcGaugh",
         "https://github.com/minnsace",
+        "https://github.com/AustinMcGaugh",
+        "https://www.instagram.com/austinmcgaugh/",
       ]), "About page founder sameAs must list the confirmed profiles");
     } catch (error) {
       check(false, `Invalid About page JSON-LD: ${error.message}`);
