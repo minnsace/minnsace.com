@@ -30,6 +30,7 @@ jobs:
           cp index.html about.html privacy.html 404.html styles.css CNAME .nojekyll robots.txt sitemap.xml _site/
           cp -r assets _site/assets
           cp -r dailyverse _site/dailyverse
+          cp -r sudoku _site/sudoku
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
@@ -48,4 +49,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
 
