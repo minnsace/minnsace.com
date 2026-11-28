@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101728">
+    <meta name="description" content="Sudoku by Minnsace — a clean, calm Sudoku for iPhone. Four difficulties, a daily puzzle, pencil marks, and ads that never interrupt a puzzle.">
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:site" content="@minnsace">
+    <link rel="canonical" href="https://minnsace.com/sudoku">
+    <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Sudoku — calm daily Sudoku puzzles | Minnsace Inc.</title>
+    <script>
+      // Smart link: when a store listing goes live, paste its URL here and
+      // visitors on that platform are redirected automatically. Leave a
+      // value empty while that listing is not yet live; the page below
+      // shows a "coming soon" button for it instead.
+      var STORE_LINKS = {
+        ios: "",
+        android: ""
+      };
+      (function () {
+        var ua = navigator.userAgent || "";
+        var isAndroid = /Android/i.test(ua);
+        var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+          (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+        var target = isAndroid ? STORE_LINKS.android : (isIOS ? STORE_LINKS.ios : "");
+        if (target) {
+          window.location.replace(target);
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+          var map = { ios: STORE_LINKS.ios, android: STORE_LINKS.android };
+          Object.keys(map).forEach(function (key) {
+            var el = document.querySelector('[data-store="' + key + '"]');
+            if (!el) return;
+            if (map[key]) {
+              el.setAttribute("href", map[key]);
+            } else {
+              el.classList.add("is-soon");
+              el.removeAttribute("href");
+              var label = el.querySelector(".store-label");
+              if (label) label.textContent += " — coming soon";
+            }
+          });
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../" aria-label="Minnsace Inc. home"><img src="../assets/minnsace-logo.png" alt="Minnsace" width="600" height="100"></a>
+      <nav aria-label="Main navigation"><a href="../#games">Games</a><a href="../about.html">About us</a><a href="../#contact">Contact</a></nav>
+    </header>
+    <main id="main" class="document wrap">
+      <p class="eyebrow">MINNSACE INC. / SUDOKU</p>
+      <h1>Sudoku</h1>
+      <p>A clean, calm Sudoku for iPhone. Four difficulties from Easy to Expert, a fresh daily puzzle, pencil marks, undo, and a timer — every puzzle guaranteed to have exactly one solution.</p>
+      <p>
+        <a class="button" data-store="ios" href="#"><span class="store-label">Download on the App Store</span></a>
+      </p>
+      <p>Sudoku is free, supported by light ads that only ever appear between puzzles — never in the middle of one. A one-time Remove Ads upgrade takes them away for good and unlocks unlimited lives and hints. No account, no sign-up: your puzzles, streaks, and stats live on your device.</p>
+      <h2>Prefer paper?</h2>
+      <p><em>Sudoku 2027</em>, the print companion, gives you one Sudoku puzzle for every day of the year, each with a verified unique solution — coming soon to Amazon.</p>
+      <p><a href="../">Return to the studio homepage <span aria-hidden="true">&rarr;</span></a></p>
+    </main>
+    <footer class="site-footer wrap"><p class="copyright">&copy; 2026 Minnsace Inc.</p><a href="../privacy.html">Privacy</a></footer>
+  </body>
+</html>
